@@ -1,0 +1,7 @@
+<h1>Wiki Home</h1>
+<ul>
+  {% for page in pages %}
+    <li><a href="/{{ page }}">{{ page }}</a></li>
+  {% endfor %}
+</ul>
+<a href="/edit/NewPage">새 문서 만들기</a>
