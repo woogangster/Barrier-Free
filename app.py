@@ -37,4 +37,5 @@ def edit_page(title):
         return render_template('edit.html', title=title, content=content)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # 환경변수에서 포트 불러오기
+    app.run(host='0.0.0.0', port=port, debug=True)  # 외부 접속 허용 + 포트 지정
