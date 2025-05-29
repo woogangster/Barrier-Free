@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>베리어 프리 여행</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       background-color: #f0f8ff;
       color: #033649;
     }
@@ -21,6 +22,12 @@
     header h1 {
       margin: 0;
       font-size: 1.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header img {
+      height: 32px;
     }
     nav a {
       color: white;
@@ -64,11 +71,20 @@
       font-size: 1.1em;
       font-weight: bold;
     }
+    .description {
+      margin-top: 60px;
+      font-size: 1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #044063;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>🧭 베리어 프리 여행</h1>
+    <h1><img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="logo"> 베리어 프리 여행</h1>
     <nav>
       <a href="/">홈</a>
       <a href="/wiki">위키</a>
@@ -91,6 +107,13 @@
         <a href="/diary">📝 여행일지</a>
         <p style="margin-top: 10px; font-size: 0.95em;">당신만의 여행 이야기를 남겨보세요.</p>
       </div>
+    </div>
+
+    <div class="description">
+      <p>이 위키는 교통약자와 모두를 위한 여행 정보를 공유하는 플랫폼입니다. 누구나 자유롭게 글을 쓰고 읽을 수 있으며,<br>
+      실제 경험을 바탕으로 한 정보가 사회적 약자의 이동권을 높이는 데 기여합니다.<br>
+      <br>
+      단순한 정보 전달을 넘어서, 모두가 동등하게 여행할 수 있는 환경을 만들고자 합니다. 여러분의 작은 기록이 누군가에겐 큰 용기가 될 수 있어요.</p>
     </div>
   </main>
 </body>
