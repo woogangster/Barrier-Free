@@ -5,7 +5,8 @@ import json
 app = Flask(__name__)
 
 DATA_DIR = 'data'
-DIARY_DIR = os.path.join(DATA_DIR, 'diary')
+DIARY_DIR = 'diary'
+os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(DIARY_DIR, exist_ok=True)
 
 # HOME
@@ -13,13 +14,13 @@ os.makedirs(DIARY_DIR, exist_ok=True)
 def home():
     return render_template('home.html')
 
-# Wiki Main Page
+# Wiki Main Page (문서 목록)
 @app.route('/wiki')
 def index():
-    pages = [f[:-5] for f in os.listdir(DATA_DIR) if f.endswith('.json') and f != 'diary']
+    pages = [f[:-5] for f in os.listdir(DATA_DIR) if f.endswith('.json')]
     return render_template('index.html', pages=pages)
 
-# View Wiki Page
+# View Page (문서 보기)
 @app.route('/<title>')
 def view_page(title):
     path = os.path.join(DATA_DIR, title + '.json')
@@ -29,7 +30,7 @@ def view_page(title):
         content = json.load(f)['content']
     return render_template('view.html', title=title, content=content)
 
-# Edit Wiki Page
+# Edit Page (문서 편집)
 @app.route('/edit/<title>', methods=['GET', 'POST'])
 def edit_page(title):
     path = os.path.join(DATA_DIR, title + '.json')
@@ -45,7 +46,7 @@ def edit_page(title):
                 content = json.load(f)['content']
         return render_template('edit.html', title=title, content=content)
 
-# Travel Diary Page
+# Travel Diary Page (여행일지)
 @app.route('/diary', methods=['GET', 'POST'])
 def diary():
     if request.method == 'POST':
@@ -64,9 +65,6 @@ def diary():
 
     return render_template('diary.html', posts=posts)
 
-import os
-
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
-
