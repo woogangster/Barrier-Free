@@ -59,8 +59,8 @@ def diary():
         return redirect('/diary')
 
     posts = []
-    for filename in sorted(os.listdir(DIARY_DIR)):
-        with open(os.path.join(DIARY_DIR, filename), 'r', encoding='utf-8') as f:
+    for filename in sorted(os.listdir('diary')):
+        with open(os.path.join('diary', filename), 'r', encoding='utf-8') as f:
             posts.append(json.load(f))
 
     return render_template('diary.html', posts=posts)
