@@ -2,11 +2,120 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>여행일지</title>
+  <title>베리어 프리 여행</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f0f8ff;
+      color: #033649;
+    }
+    header {
+      background-color: #0077b6;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header img {
+      height: 32px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .intro {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
+      text-decoration: none;
+      color: #025f94;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    .description {
+      margin-top: 60px;
+      font-size: 1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #044063;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-  <h1>📝 나의 여행일지</h1>
-  <p>여기에 나만의 여행 기록을 남길 수 있도록 기능을 추가할 예정입니다.</p>
-  <a href="/">홈으로 돌아가기</a>
+  <header>
+    <h1><img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="logo"> 베리어 프리 여행</h1>
+    <nav>
+      <a href="/">홈</a>
+      <a href="/wiki">위키</a>
+      <a href="/diary">여행일지</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p>누구나 자유롭게 여행을 즐길 수 있도록,<br>
+      이동 약자를 위한 여행 정보와 기록을 공유하는 공간입니다.</p>
+    </div>
+
+    <div class="links">
+      <div class="card">
+        <a href="/wiki">📚 베리어 프리 위키</a>
+        <p style="margin-top: 10px; font-size: 0.95em;">여행지에 대한 정보와 접근성을 자유롭게 편집할 수 있어요.</p>
+      </div>
+      <div class="card">
+        <a href="/diary">📝 여행일지</a>
+        <p style="margin-top: 10px; font-size: 0.95em;">당신만의 여행 이야기를 남겨보세요.</p>
+      </div>
+    </div>
+
+    <div class="description">
+      <p>이 위키는 교통약자와 모두를 위한 여행 정보를 공유하는 플랫폼입니다. 누구나 자유롭게 글을 쓰고 읽을 수 있으며,<br>
+      실제 경험을 바탕으로 한 정보가 사회적 약자의 이동권을 높이는 데 기여합니다.<br>
+      <br>
+      단순한 정보 전달을 넘어서, 모두가 동등하게 여행할 수 있는 환경을 만들고자 합니다. 여러분의 작은 기록이 누군가에겐 큰 용기가 될 수 있어요.</p>
+    </div>
+  </main>
 </body>
 </html>
+
