@@ -5,64 +5,92 @@
   <title>베리어 프리 여행</title>
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background: linear-gradient(to bottom, #d0e7f9, #ffffff);
       margin: 0;
-      padding: 40px;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f0f8ff;
       color: #033649;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      color: #025f94;
+    header {
+      background-color: #0077b6;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      max-width: 600px;
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .intro {
+      font-size: 1.2em;
+      max-width: 700px;
       margin: 0 auto 40px auto;
     }
-    li a {
-      display: block;
-      background: #ffffff;
-      color: #025f94;
-      padding: 15px 20px;
-      margin-bottom: 15px;
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .card {
+      background-color: white;
+      padding: 30px;
       border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
       text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s;
-    }
-    li a:hover {
-      background: #e0f3ff;
-      transform: translateY(-3px);
-    }
-    .new-page-link {
-      display: block;
-      text-align: center;
+      color: #025f94;
+      font-size: 1.1em;
       font-weight: bold;
-      text-decoration: none;
-      color: #ffffff;
-      background: #0077b6;
-      padding: 12px 20px;
-      width: 200px;
-      margin: 0 auto;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .new-page-link:hover {
-      background: #005f8e;
     }
   </style>
 </head>
 <body>
-  <h1>🧭 베리어 프리 여행</h1>
-  <ul>
-    {% for page in pages %}
-      <li><a href="/{{ page }}">{{ page }}</a></li>
-    {% endfor %}
-  </ul>
-  <a href="/edit/NewPage" class="new-page-link">+ 새 여행 기록 작성</a>
+  <header>
+    <h1>🧭 베리어 프리 여행</h1>
+    <nav>
+      <a href="/">홈</a>
+      <a href="/wiki">위키</a>
+      <a href="/diary">여행일지</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p>누구나 자유롭게 여행을 즐길 수 있도록,<br>
+      이동 약자를 위한 여행 정보와 기록을 공유하는 공간입니다.</p>
+    </div>
+
+    <div class="links">
+      <div class="card">
+        <a href="/wiki">📚 베리어 프리 위키</a>
+        <p style="margin-top: 10px; font-size: 0.95em;">여행지에 대한 정보와 접근성을 자유롭게 편집할 수 있어요.</p>
+      </div>
+      <div class="card">
+        <a href="/diary">📝 여행일지</a>
+        <p style="margin-top: 10px; font-size: 0.95em;">당신만의 여행 이야기를 남겨보세요.</p>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

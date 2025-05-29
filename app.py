@@ -1,17 +1,24 @@
 from flask import Flask, render_template, request, redirect
-import os, json
+import os
+import json
 
 app = Flask(__name__)
-DATA_DIR = "pages"
 
-if not os.path.exists(DATA_DIR):
-    os.makedirs(DATA_DIR)
+DATA_DIR = 'data'
+os.makedirs(DATA_DIR, exist_ok=True)
 
+# HOME
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+# Wiki Main Page (문서 목록)
+@app.route('/wiki')
 def index():
     pages = [f[:-5] for f in os.listdir(DATA_DIR) if f.endswith('.json')]
     return render_template('index.html', pages=pages)
 
+# View Page (문서 보기)
 @app.route('/<title>')
 def view_page(title):
     path = os.path.join(DATA_DIR, title + '.json')
@@ -21,6 +28,7 @@ def view_page(title):
         content = json.load(f)['content']
     return render_template('view.html', title=title, content=content)
 
+# Edit Page (문서 편집)
 @app.route('/edit/<title>', methods=['GET', 'POST'])
 def edit_page(title):
     path = os.path.join(DATA_DIR, title + '.json')
@@ -36,6 +44,11 @@ def edit_page(title):
                 content = json.load(f)['content']
         return render_template('edit.html', title=title, content=content)
 
+# Travel Diary (임시 화면)
+@app.route('/diary')
+def diary():
+    return render_template('diary.html')
+
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # 환경변수에서 포트 불러오기
-    app.run(host='0.0.0.0', port=port, debug=True)  # 외부 접속 허용 + 포트 지정
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
