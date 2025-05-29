@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }} 편집</title>
+</head>
+<body>
+  <h1>✏️ {{ title }} 편집</h1>
+  <form method="post">
+    <textarea name="content" rows="15" cols="80">{{ content }}</textarea><br><br>
+    <button type="submit">저장</button>
+  </form>
+  <p><a href="/wiki/{{ title }}">← 돌아가기</a></p>
+</body>
+</html>
