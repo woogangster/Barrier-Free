@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📘 여행일지 목록</h2>
+<ul>
+  {% for entry in entries %}
+    <li><a href="/diary/{{ entry }}">{{ entry }}</a></li>
+  {% else %}
+    <li>아직 작성된 일지가 없습니다.</li>
+  {% endfor %}
+</ul>
+<a href="/diary/new">✏️ 새 여행일지 작성하기</a>
+{% endblock %}

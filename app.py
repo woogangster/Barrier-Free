@@ -57,6 +57,38 @@ def diary():
         with open(os.path.join(DIARY_DIR, f'{entry_id}.json'), 'w', encoding='utf-8') as f:
             json.dump(diary_entry, f, ensure_ascii=False)
         return redirect('/diary')
+# 여행일지 저장 폴더
+DIARY_DIR = 'diary'
+os.makedirs(DIARY_DIR, exist_ok=True)
+
+# 여행일지 목록 보기
+@app.route('/diary')
+def diary_index():
+    entries = [f[:-5] for f in os.listdir(DIARY_DIR) if f.endswith('.json')]
+    return render_template('diary_index.html', entries=entries)
+
+# 여행일지 작성하기
+@app.route('/diary/new', methods=['GET', 'POST'])
+def new_diary():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        path = os.path.join(DIARY_DIR, title + '.json')
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump({'title': title, 'content': content}, f, ensure_ascii=False)
+        return redirect('/diary')
+    return render_template('diary_new.html')
+
+# 여행일지 상세 보기
+@app.route('/diary/<title>')
+def view_diary(title):
+    path = os.path.join(DIARY_DIR, title + '.json')
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            entry = json.load(f)
+        return render_template('diary_view.html', entry=entry)
+    return redirect('/diary')
+
 
     posts = []
     for filename in sorted(os.listdir('diary')):

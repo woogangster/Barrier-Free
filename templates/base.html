@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>베리어 프리 여행</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f0f8ff;
+      color: #033649;
+    }
+    header {
+      background-color: #0077b6;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header img {
+      height: 32px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background-color: #e6f2fa;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="logo"> 베리어 프리 여행</h1>
+    <nav>
+      <a href="/">홈</a>
+      <a href="/wiki">위키</a>
+      <a href="/diary">여행일지</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    © 2025 Barrier-Free Travel. 모두를 위한 여행 정보를 위하여.
+  </footer>
+</body>
+</html>
